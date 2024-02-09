@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "983622761751",
+    "project_id": "chat-app-for-lesson",
+    "storage_bucket": "chat-app-for-lesson.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:983622761751:android:91866cf00ec55227dbcb52",
+        "android_client_info": {
+          "package_name": "com.example.chat_firebase_for_lesson"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA05hNjh3-yFI8dGQYgfcMvFGvraUDiFZ8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
