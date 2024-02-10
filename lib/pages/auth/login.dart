@@ -38,7 +38,7 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                         const SizedBox(height: 16),
                         Input(
-                            controller: controller.login,
+                            controller: controller.email,
                             hintText: "Login",
                             obscureText: false),
                         const SizedBox(height: 16),

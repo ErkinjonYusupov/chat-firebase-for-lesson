@@ -1,5 +1,6 @@
 import 'package:chat_firebase_for_lesson/firebase_options.dart';
 import 'package:chat_firebase_for_lesson/pages/auth_gate.dart';
+import 'package:chat_firebase_for_lesson/utils/notification.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -7,6 +8,7 @@ import 'package:get/get.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  await FirebaseApi().initNotifications();
   runApp(const MyApp());
 }
 

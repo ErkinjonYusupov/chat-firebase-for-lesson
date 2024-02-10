@@ -5,23 +5,31 @@ import 'package:get/get.dart';
 
 class LoginController extends GetxController{
   bool loading = false;
-  TextEditingController login = TextEditingController();
+  TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
   TextEditingController confirmPassword = TextEditingController();
 
   final FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+
+
   final FirebaseFirestore firestore = FirebaseFirestore.instance;
 
   login_() async {
     try {
       if (loading) return;
       loading = true;
+
+
       UserCredential userCredential =
           await firebaseAuth.signInWithEmailAndPassword(
-              email: login.text, password: password.text);
+              email: email.text, password: password.text);
+
+
       firestore.collection('users').doc(userCredential.user!.uid).set(
-          {"uid": userCredential.user!.uid, "email": login.text},
+          {"uid": userCredential.user!.uid, "email": email.text},
           SetOptions(merge: true));
+
+
     } catch (err) {
       Get.rawSnackbar(message: err.toString());
     } finally {
@@ -34,19 +42,26 @@ class LoginController extends GetxController{
     try {
       if (loading) return;
       loading = true;
+
       if (password.text != confirmPassword.text) {
         Get.rawSnackbar(
             message: "Parolni tasdiqlashda xato",
             snackPosition: SnackPosition.TOP);
         return;
       }
+
+
       UserCredential userCredential =
           await firebaseAuth.createUserWithEmailAndPassword(
-              email: login.text, password: password.text);
+              email: email.text, password: password.text);
+
+
       firestore
           .collection('users')
           .doc(userCredential.user!.uid)
-          .set({"uid": userCredential.user!.uid, "email": login.text});
+          .set({"uid": userCredential.user!.uid, "email": email.text});
+
+
     } catch (err) {
       Get.rawSnackbar(message: err.toString());
     } finally {
@@ -57,6 +72,6 @@ class LoginController extends GetxController{
 
 
   logOut() async {
-    return await FirebaseAuth.instance.signOut();
+    return await firebaseAuth.signOut();
   }
 }

@@ -35,7 +35,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         style: TextStyle(fontSize: 16)),
                     const SizedBox(height: 16),
                     Input(
-                        controller: controller.login,
+                        controller: controller.email,
                         hintText: "Login",
                         obscureText: false),
                     const SizedBox(height: 16),
